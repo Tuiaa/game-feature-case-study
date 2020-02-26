@@ -3,6 +3,10 @@
 /*
  *      FLOWER
  *      - Class for creating flowers
+ *      - Features of flowers: 
+ *          * Different types and growth times
+ *          * Can be watered for making them grow more quickly
+ *          * Some flowers can be cross-pollunated to make new flowers
  */
 public enum FlowerType { RED, ORANGE, REDORANGE}
 

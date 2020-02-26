@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class GardeningManager : MonoBehaviour
 {
-    //[SerializeField] private List<GameObject> _flowerGameObjects;
     [SerializeField] private GameObject _redFlower;
     [SerializeField] private GameObject _orangeFlower;
     [SerializeField] private GameObject _redOrangeFlower;
     private List<Flower> _flowers = new List<Flower>();
 
-    [SerializeField] List<FlowerFieldPosition> _flowerFieldPositions;
+    [SerializeField] List<GameObject> _flowerFieldSpots;
 
     void Start()
     {
@@ -23,21 +22,13 @@ public class GardeningManager : MonoBehaviour
 
         foreach(Flower flowerInList in _flowers)
         {
-            Vector3 flowerSpawnPosition = FlowerHelperFunctions.GetSpawnPosition(flowerInList, _flowerFieldPositions);
-            FlowerHelperFunctions.SpawnFlower(flowerInList, flowerSpawnPosition, gameObject.transform);
+            Vector3 flowerSpawnPosition = FlowerHelperFunctions.GetSpawnPosition(flowerInList, _flowerFieldSpots);
+            FlowerHelperFunctions.SpawnFlowerAndRemoveSeed(flowerInList, flowerSpawnPosition, gameObject.transform);
         }
     }
-
 
     void Update()
     {
         
-    }
-
-    [System.Serializable]
-    public struct FlowerFieldPosition
-    {
-        public int id;
-        public Transform spawnTransform;
     }
 }
